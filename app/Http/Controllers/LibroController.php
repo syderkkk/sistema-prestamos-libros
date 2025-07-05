@@ -2,14 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\VerificarSesionUsuario;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use OCILob;
 use PDO;
 
-class LibroController extends Controller
+use Illuminate\Routing\Controller as BaseController;
+
+class LibroController extends BaseController
 {
+
+    public function __construct()
+    {
+        $this->middleware(VerificarSesionUsuario::class);
+    }
+    
     /**
      * Display a listing of the resource.
      */
@@ -102,6 +112,10 @@ class LibroController extends Controller
      */
     public function create()
     {
+        if (!Session::has('usuario_id')) {
+            return redirect()->route('login')
+                ->with('error', 'Debe iniciar sesión para acceder al sistema');
+        }
         try {
             $pdo = DB::getPdo();
 
@@ -165,6 +179,11 @@ class LibroController extends Controller
      */
     public function store(Request $request)
     {
+        if (!Session::has('usuario_id')) {
+            return redirect()->route('login')
+                ->with('error', 'Debe iniciar sesión para acceder al sistema');
+        }
+
         $request->validate([
             'titulo' => 'required|string|max:255',
             'isbn' => 'nullable|string|max:50',
@@ -216,6 +235,10 @@ class LibroController extends Controller
      */
     public function show(string $id)
     {
+        if (!Session::has('usuario_id')) {
+            return redirect()->route('login')
+                ->with('error', 'Debe iniciar sesión para acceder al sistema');
+        }
         try {
             $pdo = DB::getPdo();
 
@@ -262,6 +285,10 @@ class LibroController extends Controller
      */
     public function edit($id)
     {
+        if (!Session::has('usuario_id')) {
+            return redirect()->route('login')
+                ->with('error', 'Debe iniciar sesión para acceder al sistema');
+        }
         try {
             $pdo = DB::getPdo();
 
@@ -344,6 +371,10 @@ class LibroController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        if (!Session::has('usuario_id')) {
+            return redirect()->route('login')
+                ->with('error', 'Debe iniciar sesión para acceder al sistema');
+        }
         $request->validate([
             'titulo' => 'required|string|max:255',
             'isbn' => 'nullable|string|max:50',
@@ -394,6 +425,10 @@ class LibroController extends Controller
      */
     public function destroy(string $id)
     {
+        if (!Session::has('usuario_id')) {
+            return redirect()->route('login')
+                ->with('error', 'Debe iniciar sesión para acceder al sistema');
+        }
         try {
             $pdo = DB::getPdo();
             $sql = "
