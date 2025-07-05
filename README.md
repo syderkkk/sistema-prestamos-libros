@@ -1,4 +1,3 @@
-
 # 📚 Sistema de Préstamos de Libros
 
 <div align="center">
@@ -15,54 +14,32 @@ _Desarrollado con Laravel y Oracle Database_
 
 ## 📋 Tabla de Contenidos
 
--   [✨ Características](https://claude.ai/chat/c0bbff9f-ae5b-46b0-a177-4ad95d277acb#-caracter%C3%ADsticas)
--   [⚙️ Requisitos](https://claude.ai/chat/c0bbff9f-ae5b-46b0-a177-4ad95d277acb#%EF%B8%8F-requisitos)
--   [🚀 Instalación](https://claude.ai/chat/c0bbff9f-ae5b-46b0-a177-4ad95d277acb#-instalaci%C3%B3n)
--   [🔧 Configuración](https://claude.ai/chat/c0bbff9f-ae5b-46b0-a177-4ad95d277acb#-configuraci%C3%B3n)
--   [🗄️ Migraciones](https://claude.ai/chat/c0bbff9f-ae5b-46b0-a177-4ad95d277acb#%EF%B8%8F-migraciones)
--   [💻 Uso](https://claude.ai/chat/c0bbff9f-ae5b-46b0-a177-4ad95d277acb#-uso)
--   [🎯 Inicialización de Datos](https://claude.ai/chat/c0bbff9f-ae5b-46b0-a177-4ad95d277acb#-inicializaci%C3%B3n-de-datos)
--   [📁 Estructura del Proyecto](https://claude.ai/chat/c0bbff9f-ae5b-46b0-a177-4ad95d277acb#-estructura-del-proyecto)
--   [⚡ Comandos Útiles](https://claude.ai/chat/c0bbff9f-ae5b-46b0-a177-4ad95d277acb#-comandos-%C3%BAtiles)
--   [🤝 Contribuciones](https://claude.ai/chat/c0bbff9f-ae5b-46b0-a177-4ad95d277acb#-contribuciones)
--   [📄 Licencia](https://claude.ai/chat/c0bbff9f-ae5b-46b0-a177-4ad95d277acb#-licencia)
--   [🆘 Soporte](https://claude.ai/chat/c0bbff9f-ae5b-46b0-a177-4ad95d277acb#-soporte)
+-   [✨ Características](#-características)
+-   [⚙️ Requisitos](#️-requisitos)
+-   [🚀 Instalación](#-instalación)
+-   [🔧 Configuración](#-configuración)
+-   [🗄️ Migraciones](#️-migraciones)
+-   [💻 Uso](#-uso)
+-   [🎯 Inicialización de Datos](#-inicialización-de-datos)
+-   [📁 Estructura del Proyecto](#-estructura-del-proyecto)
+-   [⚡ Comandos Útiles](#-comandos-útiles)
+-   [🤝 Contribuciones](#-contribuciones)
+-   [📄 Licencia](#-licencia)
+-   [🆘 Soporte](#-soporte)
 
 ----------
 
 ## ✨ Características
 
-Funcionalidad
-
-Descripción
-
-📖 **Gestión de Libros**
-
-Registro, edición, eliminación y listado completo
-
-👤 **Gestión de Autores**
-
-Administración de autores y categorías
-
-🔄 **Préstamos**
-
-Sistema de préstamo y devolución de libros
-
-🎭 **Roles de Usuario**
-
-Bibliotecario y Usuario con permisos diferenciados
-
-🔍 **Búsqueda Avanzada**
-
-Filtros por título, autor y categoría
-
-🎛️ **Panel Admin**
-
-Interfaz administrativa
-
-🔐 **Autenticación**
-
-Sistema de registro y login
+| Funcionalidad | Descripción |
+|---------------|-------------|
+| 📖 **Gestión de Libros** | Registro, edición, eliminación y listado completo |
+| 👤 **Gestión de Autores** | Administración de autores y categorías |
+| 🔄 **Préstamos** | Sistema de préstamo y devolución de libros |
+| 🎭 **Roles de Usuario** | Bibliotecario y Usuario con permisos diferenciados |
+| 🔍 **Búsqueda Avanzada** | Filtros por título, autor y categoría |
+| 🎛️ **Panel Admin** | Interfaz administrativa |
+| 🔐 **Autenticación** | Sistema de registro y login |
 
 ----------
 
@@ -79,7 +56,6 @@ Sistema de registro y login
 
 ```ini
 extension=oci8_19
-
 ```
 
 ----------
@@ -91,14 +67,12 @@ extension=oci8_19
 ```bash
 git clone https://github.com/syderkkk/sistema-prestamos-libros.git
 cd sistema-prestamos-libros
-
 ```
 
 ### 2️⃣ Instalar Dependencias
 
 ```bash
 composer install
-
 ```
 
 ### 3️⃣ Configurar Entorno
@@ -106,7 +80,6 @@ composer install
 ```bash
 cp .env.example .env
 php artisan key:generate
-
 ```
 
 ### 4️⃣ Configurar Base de Datos
@@ -120,7 +93,6 @@ DB_PORT=1521
 DB_DATABASE=XE
 DB_USERNAME=usuario
 DB_PASSWORD=contraseña
-
 ```
 
 ### 5️⃣ Habilitar Extensión OCI8
@@ -129,7 +101,6 @@ Asegúrate de tener habilitada la extensión en `php.ini`:
 
 ```ini
 extension=oci8_19
-
 ```
 
 ----------
@@ -150,7 +121,6 @@ Ejecuta las migraciones para crear la estructura de base de datos:
 
 ```bash
 php artisan migrate
-
 ```
 
 ----------
@@ -161,7 +131,6 @@ php artisan migrate
 
 ```bash
 php artisan serve
-
 ```
 
 ### 🔗 Acceder a la Aplicación
@@ -172,29 +141,34 @@ Visita: [http://localhost:8000](http://localhost:8000/)
 
 ## 🎯 Inicialización de Datos
 
-> 📌 **Configuración Inicial**
+> 📌 **Configuración Inicial Obligatoria**
 
-Después de iniciar el servidor, inicializa los datos base visitando estas rutas:
+**¡IMPORTANTE!** Después de iniciar el servidor, es **NECESARIO** visitar las siguientes rutas para que la base de datos se configure correctamente con todos los paquetes y códigos PL/SQL necesarios:
 
-Ruta
+| Orden | Ruta | Descripción | Estado |
+|-------|------|-------------|--------|
+| 1° | `http://localhost:8000/setup/usuarios` | 👥 Crear usuarios y roles iniciales | ⚠️ **Obligatorio** |
+| 2° | `http://localhost:8000/setup/libros` | 📚 Crear datos base de libros, autores y categorías | ⚠️ **Obligatorio** |
 
-Propósito
+### 📋 Pasos de Inicialización
 
-Icono
+1. **Inicia el servidor** con `php artisan serve`
+2. **Visita primero**: `http://localhost:8000/setup/usuarios`
+3. **Visita segundo**: `http://localhost:8000/setup/libros`
 
-[/setup/usuarios](http://localhost:8000/setup/usuarios)
+> ⚡ **Nota Importante:** 
+> - Solo necesitas acceder **una vez** a cada ruta para inicializar el sistema
+> - Estas rutas crean automáticamente todos los **paquetes PL/SQL** necesarios
+> - Se configuran los **procedimientos almacenados** y **funciones** de Oracle
+> - Se insertan los **datos iniciales** para el funcionamiento del sistema
 
-Crear usuarios y roles iniciales
+### 🔄 ¿Qué se configura automáticamente?
 
-👥
-
-[/setup/libros](http://localhost:8000/setup/libros)
-
-Crear datos base de libros, autores y categorías
-
-📚
-
-> ⚡ **Nota:** Solo necesitas acceder una vez a cada ruta para inicializar el sistema.
+- **Paquetes PL/SQL** para gestión de préstamos
+- **Procedimientos almacenados** para operaciones complejas
+- **Funciones Oracle** para cálculos y validaciones
+- **Datos iniciales** (usuarios, roles, libros de ejemplo)
+- **Estructura completa** de la base de datos
 
 ----------
 
@@ -207,14 +181,11 @@ Crear datos base de libros, autores y categorías
 ├── 📂 routes/                  # Definición de rutas
 │   └── 📄 web.php             # Rutas web
 └── 📂 public/                  # Archivos públicos
-
 ```
 
 ----------
 
 ## ⚡ Comandos Útiles
-
-
 
 ### 🧹 Limpieza de Cachés
 
@@ -222,7 +193,6 @@ Crear datos base de libros, autores y categorías
 php artisan config:clear
 php artisan cache:clear
 php artisan route:clear
-
 ```
 
 ### 🔄 Otros Comandos
@@ -236,11 +206,8 @@ php artisan route:list
 
 # Verificar configuración
 php artisan config:show
-
 ```
 
 ----------
 
-
-
-<sub> Desarrollado por <a href="https://github.com/syderkkk">syderkkk</a>
+<sub>Desarrollado por <a href="https://github.com/syderkkk">syderkkk</a></sub>
